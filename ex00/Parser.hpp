@@ -30,6 +30,7 @@ public:
         _op = alt._op;
         _precedence = alt._precedence;
         _apply = alt._apply;
+        return *this;
     }
 
     Operator(Operator const &alt) : _op(alt._op), _precedence(alt._precedence), _apply(alt._apply) {}
