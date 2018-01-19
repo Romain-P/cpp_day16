@@ -17,6 +17,7 @@ DomesticKoala &DomesticKoala::operator=(const DomesticKoala &alt) {
     _action = alt._action;
     _actions = std::vector<methodPointer_t>(alt._actions);
     _commands = std::vector<char>(alt._commands);
+    return *this;
 }
 
 std::vector<methodPointer_t> const *DomesticKoala::getActions() const {
@@ -29,7 +30,7 @@ void DomesticKoala::learnAction(unsigned char command, methodPointer_t action) {
 }
 
 void DomesticKoala::doAction(unsigned char command, const std::string &param) {
-    long index = std::find(_commands.begin(), _commands.end(), command) - _commands.begin();
+    unsigned long index = std::find(_commands.begin(), _commands.end(), command) - _commands.begin();
 
     if (index < _commands.size())
         (_action.*_actions[index])(param);
