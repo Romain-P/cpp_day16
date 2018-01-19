@@ -91,7 +91,7 @@ int Parser::parse_postfix(std::string &postfix) {
 
 void Parser::feed(std::string const &s) {
     std::string postfix = generate_postfix_expr(s);
-    _result = parse_postfix(postfix);
+    parse_postfix(postfix);
 }
 
 int Parser::next_number(char const *s, int &j) {
